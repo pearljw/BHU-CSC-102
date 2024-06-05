@@ -75,3 +75,34 @@ print(f"Children's account  balance after deposit: {children.get_balance()}")
 children.withdraw(500)
 print(f"Children's account  balance after withdrawal: {children.get_balance()}")
 
+
+
+#studentAccount
+
+
+from account import Account
+
+
+
+class StudentAccount(Account):
+    WITHDRAWAL_LIMIT = 2000
+    DEPOSIT_LIMIT = 50000
+
+    def deposit(self, amount):
+        if amount <= self.DEPOSIT_LIMIT:
+            return super().deposit(amount)
+        return False
+
+    def withdraw(self, amount):
+        if amount <= self.WITHDRAWAL_LIMIT:
+            return super().withdraw(amount)
+        return False
+
+student = StudentAccount("Student")
+
+print(f"Student account balance: {student.get_balance()}")
+student.deposit(50000)
+print(f"Student account balance after deposit: {student.get_balance()}")
+student.withdraw(1000)
+print(f"Student account balance after withdrawal: {student.get_balance()}")
+
