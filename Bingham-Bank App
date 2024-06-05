@@ -107,3 +107,18 @@ print(f"Student account balance after deposit: {student.get_balance()}")
 student.withdraw(1000)
 print(f"Student account balance after withdrawal: {student.get_balance()}")
 
+#Current_account
+from account import Account
+
+
+
+class CurrentAccount(Account):
+    pass
+
+current = CurrentAccount("Current")
+
+print(f"Current account balance: {current.get_balance()}")
+current.deposit(2000)
+print(f"Current account balance after deposit: {current.get_balance()}")
+current.withdraw(1000)
+print(f"Current account balance after withdrawal: {current.get_balance()}")
