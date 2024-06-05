@@ -51,6 +51,27 @@ print(f"Savings account balance after deposit: {savings.get_balance()}")
 savings.withdraw(500)
 print(f"Savings account balance after withdrawal: {savings.get_balance()}")
 
+#Children account
+from account import Account
 
 
+class ChildrensAccount(Account):
+    INTEREST_RATE = 0.007
+
+    def deposit(self, amount):
+        if super().deposit(amount):
+            self._balance += amount * self.INTEREST_RATE
+            return True
+        return False
+
+
+    def withdraw(self, amount):
+        return False
+children = ChildrensAccount('Children')
+
+print(f"Children's account balance: {children.get_balance()}")
+children.deposit(1000)
+print(f"Children's account  balance after deposit: {children.get_balance()}")
+children.withdraw(500)
+print(f"Children's account  balance after withdrawal: {children.get_balance()}")
 
