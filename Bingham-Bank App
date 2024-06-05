@@ -22,4 +22,35 @@ class Account:
         return self._account_number
 
 
-#
+
+# savings account
+from account import Account
+
+
+
+class SavingsAccount(Account):
+    INTEREST_RATE = 0.005
+    WITHDRAWAL_LIMIT = 700000
+
+    def deposit(self, amount):
+        if super().deposit(amount):
+            self._balance += amount * self.INTEREST_RATE
+            return True
+        return False
+
+    def withdraw(self, amount):
+        if amount <= self.WITHDRAWAL_LIMIT:
+            return super().withdraw(amount)
+        return False
+
+savings = SavingsAccount("savings")
+
+print(f"Savings account balance: {savings.get_balance()}")
+savings.deposit(1000)
+print(f"Savings account balance after deposit: {savings.get_balance()}")
+savings.withdraw(500)
+print(f"Savings account balance after withdrawal: {savings.get_balance()}")
+
+
+
+
