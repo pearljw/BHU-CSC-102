@@ -24,6 +24,7 @@ class Account:
 
 
 # savings account
+
 from account import Account
 
 
@@ -52,6 +53,7 @@ savings.withdraw(500)
 print(f"Savings account balance after withdrawal: {savings.get_balance()}")
 
 #Children account
+
 from account import Account
 
 
@@ -78,7 +80,6 @@ print(f"Children's account  balance after withdrawal: {children.get_balance()}")
 
 
 #studentAccount
-
 
 from account import Account
 
